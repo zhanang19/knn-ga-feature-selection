@@ -13,12 +13,6 @@ def loadDataset(filename: str, splitProbability: float) -> typeHinting.Dataset:
         lines = csv.reader(csvfile)
         dataset = list(lines)
 
-        # for line in dataset:
-        #     print(line)
-        #     exit(0)
-        #     for propertyIndex in line:
-        #         dataset[1][propertyIndex]
-
         dataset2 = dataset
         __scaler = MinMaxScaler()
         __scaler.fit(dataset)

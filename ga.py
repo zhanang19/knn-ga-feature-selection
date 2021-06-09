@@ -4,8 +4,25 @@ import numpy
 import random
 import typeHinting
 
-Population = tuple[list, float]
-Individual = list[float]
+
+def generatePopulation(n: int, trainingSet: list, testSet: list) -> typeHinting.PopulationWithFitness:
+    __population = []
+    for a in range(n):
+        __individual = []
+
+        for x in range(len(trainingSet[0]) - 1):
+            __individual.append(numpy.random.randint(1))
+
+        __population.append([
+            __individual,
+            fitnessValue(
+                individual=__individual,
+                trainingSet=trainingSet,
+                testSet=testSet,
+            )
+        ])
+
+    return __population
 
 
 def fitnessValue(individual: typeHinting.Individual, trainingSet, testSet) -> float:
@@ -20,6 +37,7 @@ def fitnessValue(individual: typeHinting.Individual, trainingSet, testSet) -> fl
             trainingSet=trainingSet,
             testInstance=testSet[x],
         )
+
         __predictions.append(
             knn.calculate(__neighbors)
         )
@@ -61,7 +79,7 @@ def mutate(chrom2, probability, next2, n):
     return next2
 
 
-def crossover(population, probability: float, next2):
+def crossover(population: list[typeHinting.IndividualWithFitness], probability: float, nextGeneration: typeHinting.Individual) -> typeHinting.Individual:
     __range = int(probability * len(population))
 
     for i in range(__range):
@@ -69,8 +87,40 @@ def crossover(population, probability: float, next2):
         __x2 = tournament(population)
 
         if __x1 == __x2:
-            next2.append(__x1)
+            nextGeneration.append(__x1)
         else:
-            next2.append(util.toXor(__x1, __x2))
+            nextGeneration.append(util.toXor(__x1, __x2))
 
-    return next2
+    return nextGeneration
+
+
+def eliteChild(chrom2: typeHinting.PopulationWithFitness, n: int) -> typeHinting.EliteChild:
+    a = sorted(chrom2, key=lambda l: l[1], reverse=True)
+    bestVal = float(a[0][1])
+    bestFeature: typeHinting.Feature = a[0][0]
+    nextGeneration = []
+    chrom3 = []
+
+    for x in range(2):
+        nextGeneration.append(a[x][0])
+
+    for x in range(2, n):
+        chrom3.append(a[x])
+
+    return chrom3, nextGeneration, bestVal, bestFeature
+
+
+def evolve(population, index, genNum) -> tuple[typeHinting.Population, list, typeHinting.Feature]:
+    population, nextGeneration, bestFitness, bestFeature = eliteChild(population, genNum)
+
+    nextGeneration = crossover(
+        population,
+        probability=0.8,
+        nextGeneration=nextGeneration
+    )
+
+    nextGeneration = mutate(population, 0.3, nextGeneration, genNum)
+
+    print('Generation {} {:.3f}%'.format(index + 1, float(bestFitness)))
+
+    return nextGeneration, bestFitness, bestFeature
