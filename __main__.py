@@ -22,7 +22,7 @@ def generatePopulation(n: int, trainingSet: list, testSet: list) -> Population:
         __population.append([
             __individual,
             ga.fitnessValue(
-                population=__individual,
+                individual=__individual,
                 trainingSet=trainingSet,
                 testSet=testSet,
             )
@@ -56,13 +56,13 @@ def getGeneration(population: Population, index, genNum):
 
 def main():
     genNum = 15
-    knn_chrom = [0, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+    knnIndividual = [0, 1, 1, 1, 1, 1, 1, 1, 1, 1]
     __trainingSet, __testSet = util.loadDataset(
         filename='data/glass.csv',
         splitProbability=0.8
     )
     knn_acc = ga.fitnessValue(
-        population=knn_chrom,
+        individual=knnIndividual,
         trainingSet=__trainingSet,
         testSet=__testSet,
     )
@@ -87,7 +87,7 @@ def main():
             temp = []
             temp.append(newChrom[y])
             fitness = ga.fitnessValue(
-                newChrom[y],
+                individual=newChrom[y],
                 trainingSet=__trainingSet,
                 testSet=__testSet,
             )

@@ -1,2 +1,5 @@
 Population = tuple[list, float]
 Individual = list[float]
+TrainingSet = list[float]
+TestSet = list[float]
+Dataset = tuple[TrainingSet, TestSet]

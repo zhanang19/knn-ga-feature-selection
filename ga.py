@@ -2,11 +2,13 @@ import knn
 import util
 import numpy
 import random
+import typeHinting
 
 Population = tuple[list, float]
 Individual = list[float]
 
-def fitnessValue(population, trainingSet, testSet) -> float:
+
+def fitnessValue(individual: typeHinting.Individual, trainingSet, testSet) -> float:
     random.seed(2)
 
     __predictions = []
@@ -14,12 +16,12 @@ def fitnessValue(population, trainingSet, testSet) -> float:
     for x in range(len(testSet)):
         __neighbors = knn.getNeighbors(
             k=3,
-            chromosome=population,
+            individual=individual,
             trainingSet=trainingSet,
             testInstance=testSet[x],
         )
         __predictions.append(
-            knn.getResponse(__neighbors)
+            knn.calculate(__neighbors)
         )
 
     __accuracy = knn.getAccuracy(testSet, __predictions)

@@ -26,14 +26,14 @@ def euclideanDistance(firstInstance: list, secondInstance: list, individual: typ
     return math.sqrt(__distance)
 
 
-def getNeighbors(trainingSet: list, testInstance: list, k: int, chromosome: list) -> list:
+def getNeighbors(trainingSet: list, testInstance: list, k: int, individual: typeHinting.Individual) -> list:
     __distances = []
 
     for __i in range(len(trainingSet)):
         __currentDistance = euclideanDistance(
             firstInstance=testInstance,
             secondInstance=trainingSet[__i],
-            individual=chromosome
+            individual=individual
         )
         __distances.append((trainingSet[__i], __currentDistance))
 
@@ -46,7 +46,7 @@ def getNeighbors(trainingSet: list, testInstance: list, k: int, chromosome: list
     return __neighbors
 
 
-def getResponse(neighbors: list) -> float:
+def calculate(neighbors: list) -> float:
     __classVotes = {}
     for x in range(len(neighbors)):
         response = neighbors[x][-1]

@@ -1,5 +1,6 @@
 import csv
 import random
+import typeHinting
 from sklearn.preprocessing import MinMaxScaler
 
 # Type alias
@@ -7,12 +8,13 @@ Dataset = tuple[list, list]
 Population = tuple[list, float]
 Individual = list[float]
 
-def loadDataset(filename: str, splitProbability: float) -> Dataset:
+def loadDataset(filename: str, splitProbability: float) -> typeHinting.Dataset:
     with open(filename, 'rt') as csvfile:
         lines = csv.reader(csvfile)
         dataset = list(lines)
         dataset2 = dataset
         __scaler = MinMaxScaler()
+        # __scaler = MinMaxScaler(copy=True, feature_range=(0, 1))
         __scaler.fit(dataset)
 
         MinMaxScaler(copy=True, feature_range=(0, 1))
