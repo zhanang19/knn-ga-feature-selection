@@ -47,57 +47,10 @@ def eliteChild(chrom2: list, n: int):
     return chrom3, next2, bestVal, bestFt2
 
 
-def tournament(chrom2: list):
-    __best = []
-
-    for x in range(2):
-        a = numpy.random.randint(0, 7)
-        __best.append(chrom2[a])
-
-    __bestOne = __best[0]
-
-    if(__best[0][1] < __best[1][1]):
-        __bestOne = __best[1]
-
-    return __bestOne[0]
-
-
-def getMutation(chrom2, probability, next2, n):
-    rng = n - len(next2)
-    for i in range(rng):
-        a = tournament(chrom2)
-        rd = []
-        for x in range(10):
-            if numpy.random.uniform(0.0, 1.0) <= probability:
-                rd.append(1)
-            else:
-                rd.append(0)
-        if a == rd:
-            a = tournament(chrom2)
-        result = util.toXor(a, rd)
-        next2.append(result)
-    return next2
-
-
-def getCrossOver(population: Population, probability: float, next2):
-    __range = int(probability * len(population))
-
-    for i in range(__range):
-        __x1 = tournament(population)
-        __x2 = tournament(population)
-
-        if __x1 == __x2:
-            next2.append(__x1)
-        else:
-            next2.append(util.toXor(__x1, __x2))
-
-    return next2
-
-
 def getGeneration(population: Population, index, genNum):
     population, nextGen, bestFitness, bestFt2 = eliteChild(population, genNum)
-    nextGen = getCrossOver(population, 0.8, nextGen)
-    nextGen = getMutation(population, 0.3, nextGen, genNum)
+    nextGen = ga.crossover(population, 0.8, nextGen)
+    nextGen = ga.mutate(population, 0.3, nextGen, genNum)
     print('Generation {} {:.3f}%'.format(index + 1, float(bestFitness)))
     return nextGen, bestFitness, bestFt2
 

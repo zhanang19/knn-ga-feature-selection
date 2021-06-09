@@ -1,17 +1,25 @@
 import csv
 import random
 import math
+import util
+import typeHinting
 import operator
 
-# Type alias
-Dataset = tuple[list, list]
 
+def euclideanDistance(firstInstance: list, secondInstance: list, individual: typeHinting.Individual) -> float:
+    """This is used to calculate euclidean distance.
+    We will strip out the first column as its just an index number.
 
-def euclideanDistance(firstInstance: list, secondInstance: list, chromosome: list) -> float:
+    Formula:
+
+    d(P, Q) = √ (Σ (Qi - Pi)²)
+
+    """
+
     __distance = 0
 
-    for x in range(1, len(firstInstance) - 1):
-        if chromosome[x] == 1:
+    for x in range(1, len(individual)):
+        if individual[x] == 1:
             __distance += pow((float(firstInstance[x]) -
                               float(secondInstance[x])), 2)
 
@@ -25,7 +33,7 @@ def getNeighbors(trainingSet: list, testInstance: list, k: int, chromosome: list
         __currentDistance = euclideanDistance(
             firstInstance=testInstance,
             secondInstance=trainingSet[__i],
-            chromosome=chromosome
+            individual=chromosome
         )
         __distances.append((trainingSet[__i], __currentDistance))
 

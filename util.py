@@ -4,6 +4,8 @@ from sklearn.preprocessing import MinMaxScaler
 
 # Type alias
 Dataset = tuple[list, list]
+Population = tuple[list, float]
+Individual = list[float]
 
 def loadDataset(filename: str, splitProbability: float) -> Dataset:
     with open(filename, 'rt') as csvfile:
