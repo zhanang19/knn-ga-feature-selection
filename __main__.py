@@ -4,6 +4,7 @@ import numpy
 import sys
 import os
 import util
+import typeHinting
 from sklearn.preprocessing import MinMaxScaler
 
 # Type alias
@@ -11,7 +12,7 @@ Dataset = tuple[list, list]
 Population = tuple[list, float]
 
 
-def generatePopulation(n: int, trainingSet: list, testSet: list) -> Population:
+def generatePopulation(n: int, trainingSet: list, testSet: list) -> typeHinting.Population:
     __population = []
     for a in range(n):
         __individual = []
@@ -58,7 +59,7 @@ def main():
     genNum = 15
     knnIndividual = [0, 1, 1, 1, 1, 1, 1, 1, 1, 1]
     __trainingSet, __testSet = util.loadDataset(
-        filename='data/glass.csv',
+        filename='data/wsd.csv',
         splitProbability=0.8
     )
     knn_acc = ga.fitnessValue(
@@ -66,7 +67,7 @@ def main():
         trainingSet=__trainingSet,
         testSet=__testSet,
     )
-    limit = 120
+    limit = 10
     stall = 50
     population = generatePopulation(
         trainingSet=__trainingSet,
@@ -106,9 +107,9 @@ def main():
         if counter == stall:
             break
 
-    print("Accuracy using K-NN without GA: {:.3f}%".format(float(knn_acc)))
-    print("Accuracy using K-NN with GA: {:.3f}%".format(float(newFit)))
-    print("Used features:", bestFt)
+    print("Accuracy K-NN without GA: {:.3f}%".format(float(knn_acc)))
+    print("Accuracy K-NN with GA: {:.3f}%".format(float(newFit)))
+    print("Features used:", bestFt)
 
 
 if __name__ == '__main__':

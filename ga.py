@@ -49,7 +49,7 @@ def mutate(chrom2, probability, next2, n):
     for i in range(rng):
         a = tournament(chrom2)
         rd = []
-        for x in range(10):
+        for x in range(len(a)):
             if numpy.random.uniform(0.0, 1.0) <= probability:
                 rd.append(1)
             else:

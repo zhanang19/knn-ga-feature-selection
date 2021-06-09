@@ -12,9 +12,15 @@ def loadDataset(filename: str, splitProbability: float) -> typeHinting.Dataset:
     with open(filename, 'rt') as csvfile:
         lines = csv.reader(csvfile)
         dataset = list(lines)
+
+        # for line in dataset:
+        #     print(line)
+        #     exit(0)
+        #     for propertyIndex in line:
+        #         dataset[1][propertyIndex]
+
         dataset2 = dataset
         __scaler = MinMaxScaler()
-        # __scaler = MinMaxScaler(copy=True, feature_range=(0, 1))
         __scaler.fit(dataset)
 
         MinMaxScaler(copy=True, feature_range=(0, 1))
@@ -23,11 +29,14 @@ def loadDataset(filename: str, splitProbability: float) -> typeHinting.Dataset:
         __trainingSet = []
         __testSet = []
 
+        __labelIndex = len(dataset[0]) - 1
+        __individualLength = len(dataset[0]) - 2
+
         for a in range(len(dataset)):
-            dataset[a][10] = dataset2[a][10]
+            dataset[a][__labelIndex] = dataset2[a][__labelIndex]
 
         for x in range(0, len(dataset)):
-            for y in range(9):
+            for y in range(__individualLength):
                 dataset[x][y] = float(dataset[x][y])
             if random.random() < splitProbability:
                 __trainingSet.append(dataset[x])
@@ -36,11 +45,11 @@ def loadDataset(filename: str, splitProbability: float) -> typeHinting.Dataset:
 
     return __trainingSet, __testSet
 
-def toXor(x1: list, x2: list) -> list:
-    __xorResult = []
-    for __i in range(len(x1)):
-        if x1[__i] == x2[__i]:
-            __xorResult.append(0)
+def toXor(male: typeHinting.Individual, female: typeHinting.Individual) -> typeHinting.Individual:
+    __child = []
+    for __i in range(len(male)):
+        if male[__i] == female[__i]:
+            __child.append(0)
         else:
-            __xorResult.append(1)
-    return __xorResult
+            __child.append(1)
+    return __child
