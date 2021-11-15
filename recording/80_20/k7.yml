@@ -1,0 +1,219 @@
+# The configurations that used for the recording, feel free to edit them
+config:
+
+  # Specify a command to be executed
+  # like `/bin/bash -l`, `ls`, or any other commands
+  # the default is bash for Linux
+  # or powershell.exe for Windows
+  command: zsh
+
+  # Specify the current working directory path
+  # the default is the current working directory path
+  cwd: /Users/zhanang19/projects/python/knn-ga-feature-selection
+
+  # Export additional ENV variables
+  env:
+    recording: true
+
+  # Explicitly set the number of columns
+  # or use `auto` to take the current
+  # number of columns of your shell
+  cols: 114
+
+  # Explicitly set the number of rows
+  # or use `auto` to take the current
+  # number of rows of your shell
+  rows: 14
+
+  # Amount of times to repeat GIF
+  # If value is -1, play once
+  # If value is 0, loop indefinitely
+  # If value is a positive number, loop n times
+  repeat: 0
+
+  # Quality
+  # 1 - 100
+  quality: 100
+
+  # Delay between frames in ms
+  # If the value is `auto` use the actual recording delays
+  frameDelay: auto
+
+  # Maximum delay between frames in ms
+  # Ignored if the `frameDelay` isn't set to `auto`
+  # Set to `auto` to prevent limiting the max idle time
+  maxIdleTime: 2000
+
+  # The surrounding frame box
+  # The `type` can be null, window, floating, or solid`
+  # To hide the title use the value null
+  # Don't forget to add a backgroundColor style with a null as type
+  frameBox:
+    type: window
+    title: "KNN GA K=7"
+    style:
+      border: 0px black solid
+      # boxShadow: none
+      # margin: 0px
+
+  # Add a watermark image to the rendered gif
+  # You need to specify an absolute path for
+  # the image on your machine or a URL, and you can also
+  # add your own CSS styles
+  watermark:
+    imagePath: null
+    style:
+      position: absolute
+      right: 15px
+      bottom: 15px
+      width: 100px
+      opacity: 0.9
+
+  # Cursor style can be one of
+  # `block`, `underline`, or `bar`
+  cursorStyle: block
+
+  # Font family
+  # You can use any font that is installed on your machine
+  # in CSS-like syntax
+  fontFamily: "Monaco, Lucida Console, Ubuntu Mono, Monospace"
+
+  # The size of the font
+  fontSize: 12
+
+  # The height of lines
+  lineHeight: 1
+
+  # The spacing between letters
+  letterSpacing: 0
+
+  # Theme
+  theme:
+    background: "transparent"
+    foreground: "#afafaf"
+    cursor: "#c7c7c7"
+    black: "#232628"
+    red: "#fc4384"
+    green: "#b3e33b"
+    yellow: "#ffa727"
+    blue: "#75dff2"
+    magenta: "#ae89fe"
+    cyan: "#708387"
+    white: "#d5d5d0"
+    brightBlack: "#626566"
+    brightRed: "#ff7fac"
+    brightGreen: "#c8ed71"
+    brightYellow: "#ebdf86"
+    brightBlue: "#75dff2"
+    brightMagenta: "#ae89fe"
+    brightCyan: "#b1c6ca"
+    brightWhite: "#f9f9f4"
+
+# Records, feel free to edit them
+records:
+  - delay: 200
+    content: "$ "
+  - delay: 1277
+    content: "python3 app.py\r\n"
+  - delay: 2839
+    content: "Generation 1: 36.842%\r\n"
+  - delay: 478
+    content: "Generation 2: 63.158%\r\n"
+  - delay: 778
+    content: "Generation 3: 65.789%\r\n"
+  - delay: 1239
+    content: "Generation 4: 65.789%\r\n"
+  - delay: 1214
+    content: "Generation 5: 68.421%\r\n"
+  - delay: 1338
+    content: "Generation 6: 76.316%\r\n"
+  - delay: 1549
+    content: "Generation 7: 76.316%\r\n"
+  - delay: 1465
+    content: "Generation 8: 76.316%\r\n"
+  - delay: 1475
+    content: "Generation 9: 76.316%\r\n"
+  - delay: 1372
+    content: "Generation 10: 76.316%\r\n"
+  - delay: 1377
+    content: "Generation 11: 76.316%\r\n"
+  - delay: 1450
+    content: "Generation 12: 76.316%\r\n"
+  - delay: 1347
+    content: "Generation 13: 76.316%\r\n"
+  - delay: 1458
+    content: "Generation 14: 76.316%\r\n"
+  - delay: 1447
+    content: "Generation 15: 81.579%\r\n"
+  - delay: 1344
+    content: "Generation 16: 81.579%\r\n"
+  - delay: 1376
+    content: "Generation 17: 81.579%\r\n"
+  - delay: 1310
+    content: "Generation 18: 84.211%\r\n"
+  - delay: 1249
+    content: "Generation 19: 84.211%\r\n"
+  - delay: 1324
+    content: "Generation 20: 84.211%\r\n"
+  - delay: 1226
+    content: "Generation 21: 84.211%\r\n"
+  - delay: 1171
+    content: "Generation 22: 84.211%\r\n"
+  - delay: 1245
+    content: "Generation 23: 84.211%\r\n"
+  - delay: 1247
+    content: "Generation 24: 86.842%\r\n"
+  - delay: 1190
+    content: "Generation 25: 86.842%\r\n"
+  - delay: 1193
+    content: "Generation 26: 86.842%\r\n"
+  - delay: 1252
+    content: "Generation 27: 86.842%\r\n"
+  - delay: 1384
+    content: "Generation 28: 86.842%\r\n"
+  - delay: 1245
+    content: "Generation 29: 86.842%\r\n"
+  - delay: 1257
+    content: "Generation 30: 86.842%\r\n"
+  - delay: 1232
+    content: "Generation 31: 86.842%\r\n"
+  - delay: 1236
+    content: "Generation 32: 86.842%\r\n"
+  - delay: 1284
+    content: "Generation 33: 86.842%\r\n"
+  - delay: 1262
+    content: "Generation 34: 86.842%\r\n"
+  - delay: 1309
+    content: "Generation 35: 86.842%\r\n"
+  - delay: 1250
+    content: "Generation 36: 86.842%\r\n"
+  - delay: 1275
+    content: "Generation 37: 86.842%\r\n"
+  - delay: 1896
+    content: "Generation 38: 86.842%\r\n"
+  - delay: 1409
+    content: "Generation 39: 86.842%\r\n"
+  - delay: 1772
+    content: "Generation 40: 86.842%\r\n"
+  - delay: 1581
+    content: "Generation 41: 86.842%\r\n"
+  - delay: 1508
+    content: "Generation 42: 86.842%\r\n"
+  - delay: 1482
+    content: "Generation 43: 86.842%\r\n"
+  - delay: 1416
+    content: "Generation 44: 86.842%\r\n"
+  - delay: 1388
+    content: "Generation 45: 86.842%\r\n"
+  - delay: 1409
+    content: "Generation 46: 86.842%\r\n"
+  - delay: 1375
+    content: "Generation 47: 86.842%\r\n"
+  - delay: 1381
+    content: "Generation 48: 86.842%\r\n"
+  - delay: 1414
+    content: "Generation 49: 86.842%\r\n"
+  - delay: 1368
+    content: "Generation 50: 86.842%\r\n"
+  - delay: 1461
+    content: "\r\nAccuracy K-NN without GA is 63.158% with total time 0.166s\r\nAccuracy K-NN with GA is \e[92m86.842%\e[0m with total time 67.041s\r\n\r\nBest feature is [0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0]\r\n\r\n\e[92mExecution completed after 67.223s\r\n\r\n"

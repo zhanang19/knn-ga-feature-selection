@@ -1,0 +1,57 @@
+Generation 1: 59.574%
+Generation 2: 61.702%
+Generation 3: 65.957%
+Generation 4: 70.213%
+Generation 5: 70.213%
+Generation 6: 70.213%
+Generation 7: 70.213%
+Generation 8: 70.213%
+Generation 9: 72.340%
+Generation 10: 76.596%
+Generation 11: 76.596%
+Generation 12: 76.596%
+Generation 13: 76.596%
+Generation 14: 76.596%
+Generation 15: 76.596%
+Generation 16: 76.596%
+Generation 17: 76.596%
+Generation 18: 76.596%
+Generation 19: 76.596%
+Generation 20: 76.596%
+Generation 21: 76.596%
+Generation 22: 76.596%
+Generation 23: 76.596%
+Generation 24: 76.596%
+Generation 25: 76.596%
+Generation 26: 76.596%
+Generation 27: 76.596%
+Generation 28: 76.596%
+Generation 29: 76.596%
+Generation 30: 76.596%
+Generation 31: 76.596%
+Generation 32: 76.596%
+Generation 33: 76.596%
+Generation 34: 76.596%
+Generation 35: 76.596%
+Generation 36: 76.596%
+Generation 37: 76.596%
+Generation 38: 76.596%
+Generation 39: 76.596%
+Generation 40: 76.596%
+Generation 41: 76.596%
+Generation 42: 76.596%
+Generation 43: 76.596%
+Generation 44: 76.596%
+Generation 45: 76.596%
+Generation 46: 76.596%
+Generation 47: 76.596%
+Generation 48: 76.596%
+Generation 49: 76.596%
+Generation 50: 76.596%
+
+Accuracy K-NN without GA is 57.447% with total time 0.412s
+Accuracy K-NN with GA is 76.596% with total time 143.237s
+
+Best feature is [1, 0, 0, 1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0]
+
+Execution completed after 143.669s

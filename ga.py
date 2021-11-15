@@ -51,7 +51,8 @@ def tournament(chrom2: list):
     __best = []
 
     for x in range(2):
-        a = numpy.random.randint(0, 7)
+        # a = numpy.random.randint(0, 7)
+        a = numpy.random.randint(0, len(chrom2) - 1)
         __best.append(chrom2[a])
 
     __bestOne = __best[0]
