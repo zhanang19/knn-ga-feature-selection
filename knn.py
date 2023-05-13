@@ -1,9 +1,8 @@
 import math
-import typeHinting
 import operator
 
 
-def euclideanDistance(firstInstance: list, secondInstance: list, individual: typeHinting.Individual) -> float:
+def euclideanDistance(firstInstance, secondInstance, individual):
     """This is used to calculate euclidean distance.
     We will strip out the first column as its just an index number.
 
@@ -23,7 +22,7 @@ def euclideanDistance(firstInstance: list, secondInstance: list, individual: typ
     return math.sqrt(__distance)
 
 
-def getNeighbors(trainingSet: list, testInstance: list, k: int, individual: typeHinting.Individual) -> list:
+def getNeighbors(trainingSet, testInstance, k, individual):
     __distances = []
 
     for __i in range(len(trainingSet)):
@@ -43,8 +42,9 @@ def getNeighbors(trainingSet: list, testInstance: list, k: int, individual: type
     return __neighbors
 
 
-def calculate(neighbors: list) -> float:
+def calculate(neighbors):
     __classVotes = {}
+
     for x in range(len(neighbors)):
         response = neighbors[x][-1]
         if response in __classVotes:
@@ -61,7 +61,7 @@ def calculate(neighbors: list) -> float:
     return float(__sortedVotes[0][0])
 
 
-def getAccuracy(testSet: list, predictions: list):
+def getAccuracy(testSet, predictions):
     __correct = 0
     for x in range(len(testSet)):
         if testSet[x][-1] == predictions[x]:

@@ -5,9 +5,9 @@ import random
 import typeHinting
 
 
-def generatePopulation(n: int, trainingSet: list, testSet: list) -> typeHinting.PopulationWithFitness:
+def generatePopulation(populationSize, trainingSet, testSet, k):
     __population = []
-    for a in range(n):
+    for a in range(populationSize):
         __individual = []
 
         for x in range(len(trainingSet[0]) - 1):
@@ -19,20 +19,21 @@ def generatePopulation(n: int, trainingSet: list, testSet: list) -> typeHinting.
                 individual=__individual,
                 trainingSet=trainingSet,
                 testSet=testSet,
+                k=k
             )
         ])
 
     return __population
 
 
-def fitnessValue(individual: typeHinting.Individual, trainingSet, testSet) -> float:
+def fitnessValue(individual, trainingSet, testSet, k):
     random.seed(2)
 
     __predictions = []
 
     for x in range(len(testSet)):
         __neighbors = knn.getNeighbors(
-            k=3,
+            k=k,
             individual=individual,
             trainingSet=trainingSet,
             testInstance=testSet[x],
@@ -47,7 +48,7 @@ def fitnessValue(individual: typeHinting.Individual, trainingSet, testSet) -> fl
     return float(__accuracy)
 
 
-def tournament(chrom2: list):
+def tournament(chrom2):
     __best = []
 
     for x in range(2):

@@ -28,32 +28,36 @@ def calculate(path='/data/wsd.csv', splitProbability=0.7):
         splitProbability=splitProbability
     )
 
-    # first individu for glass
-    __knnIndividual = [1] * (len(__trainingSet[0]) - 1)
+    # first individu
+    __knnIndividual = [1.0] * (len(__trainingSet[0]) - 1)
+
+    __kValue = 3
 
     __startTimeWithoutGa = time.time()
     __knnAccuracy = ga.fitnessValue(
         individual=__knnIndividual,
         trainingSet=__trainingSet,
         testSet=__testSet,
+        k=__kValue
     )
     __totalTimeWithoutGa = (time.time() - __startTimeWithoutGa)
 
     # generation number change to population count, this mean
     __startTimeWithGa = time.time()
-    __populationSize: int = 15
-    __iterationLimit: int = 10
-    __stall: int = 40
-    __counter: int = 0
-    __newFitness: float = 0.0
-    __oldFitness: float = 0.0
+    __populationSize = 15
+    __iterationLimit = 20
+    __stall = __iterationLimit - 5
+    __counter = 0
+    __newFitness = 0.0
+    __oldFitness = 0.0
 
     __messages = []
 
     __populationWithFitness = ga.generatePopulation(
-        trainingSet=__trainingSet,
+        k=__kValue,
         testSet=__testSet,
-        n=__populationSize
+        trainingSet=__trainingSet,
+        populationSize=__populationSize,
     )
 
     for x in range(__iterationLimit):
@@ -79,6 +83,7 @@ def calculate(path='/data/wsd.csv', splitProbability=0.7):
                     individual=__individual,
                     trainingSet=__trainingSet,
                     testSet=__testSet,
+                    k=__kValue,
                 )
             ])
 
